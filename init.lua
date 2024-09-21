@@ -22,10 +22,27 @@ opt.smartcase = true
 
 opt.termguicolors = true
 
+vim.g.mapleader = ' '
+
 local map = vim.keymap.set
+
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
+
+map('n', 'j', [[v:count ? 'j' : 'gj']], { expr = true })
+map('n', 'k', [[v:count ? 'k' : 'gk']], { expr = true })
 
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
+
+map('n', '<leader>sv', '<C-w>v')
+map('n', '<leader>sh', '<C-w>s')
+
+map('n', '<leader>nh', ':nohl<CR>')
+
+require('config.lazy')
+
+
 
