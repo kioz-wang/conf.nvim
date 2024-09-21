@@ -44,5 +44,7 @@ map('n', '<leader>nh', ':nohl<CR>')
 
 require('config.lazy')
 
+-- vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme nord]]
 
 
