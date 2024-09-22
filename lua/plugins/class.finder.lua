@@ -27,5 +27,20 @@ return {
       }
     }
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    tag = 'v1.7.0',
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      {
+        '<leader>ft',
+        ':NvimTreeToggle<CR>',
+        desc = 'Toggle NvimTree'
+      }
+    },
+    opts = {}
+  }
 }
 
