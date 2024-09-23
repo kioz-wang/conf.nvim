@@ -40,7 +40,27 @@ return {
         desc = 'Toggle NvimTree'
       }
     },
-    opts = {}
+    opts = {
+      filters = {
+        dotfiles = true,
+      },
+      disable_netrw = true,
+      modified = {
+        enable = true,
+      },
+      renderer = {
+        highlight_opened_files = "icon",
+        highlight_modified = "name",
+      },
+      view = {
+        width = {
+          max = 45,
+        },
+      },
+      diagnostics = {
+        enable = true,
+      },
+    }
   }
 }
 

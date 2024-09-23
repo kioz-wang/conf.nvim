@@ -33,20 +33,25 @@ map('v', 'K', ":m '<-2<CR>gv=gv")
 map('n', 'j', [[v:count ? 'j' : 'gj']], { expr = true })
 map('n', 'k', [[v:count ? 'k' : 'gk']], { expr = true })
 
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
+map('n', '<leader>wh', '<C-w>h')
+map('n', '<leader>wj', '<C-w>j')
+map('n', '<leader>wk', '<C-w>k')
+map('n', '<leader>wl', '<C-w>l')
 
 map('n', '<leader>sv', '<C-w>v')
 map('n', '<leader>sh', '<C-w>s')
 
 map('n', '<leader>nh', ':nohl<CR>')
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require('config.lazy')
 
 -- vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[colorscheme nord]]
+
+require('lspconfig').clangd.setup {}
 
 require('lspconfig').lua_ls.setup {
   on_init = function(client)
@@ -81,5 +86,4 @@ require('lspconfig').lua_ls.setup {
     Lua = {}
   }
 }
-
 

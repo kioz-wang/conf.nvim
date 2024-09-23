@@ -3,7 +3,6 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = true,
-    priority = 1000,
   },
   {
     "tanvirtin/monokai.nvim",
@@ -12,6 +11,11 @@ return {
   {
     "shaunsingh/nord.nvim",
     lazy = false,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {}
   }
 }
 
