@@ -9,27 +9,27 @@ return {
     },
     keys = {
       {
-        '<leader>ghs',
+        '<leader>gS',
         ':Gitsigns stage_hunk<CR>',
         desc = 'Git stage the hunk at the cursor position'
       },
       {
-        '<leader>ghu',
+        '<leader>gU',
         ':Gitsigns undo_stage_hunk<CR>',
         desc = 'Undo the last Git stage_hunk'
       },
       {
-        '<leader>ghr',
+        '<leader>gR',
         ':Gitsigns reset_hunk<CR>',
         desc = 'Git reset the lines of the hunk at the cursor position'
       },
       {
-        '<leader>ghS',
+        '<leader>gs',
         ':Gitsigns stage_buffer<CR>',
         desc = 'Git stage all hunks in current buffer'
       },
       {
-        '<leader>ghR',
+        '<leader>gr',
         ':Gitsigns reset_buffer<CR>',
         desc = 'Git reset the lines of all hunks in the buffer'
       },

@@ -3,10 +3,11 @@ return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
       -- Optional dependencies
       -- 'fd', 'ripgrep'
       -- "nvim-treesitter/nvim-treesitter"
+      'nvim-telescope/telescope-symbols.nvim',
     },
     lazy = true,
     keys = {
@@ -29,7 +30,27 @@ return {
         '<leader>fh',
         function() require('telescope.builtin').help_tags() end,
         desc = 'Telescope help tags'
-      }
+      },
+      {
+        '<leader>fG',
+        ':Telescope current_buffer_fuzzy_find<CR>',
+        desc = 'Telescope fuzzy in current buffer'
+      },
+      {
+        '<leader>fsS',
+        ':Telescope lsp_document_symbols<CR>',
+        desc = 'Telescope find symbols in current buffer'
+      },
+      {
+        '<leader>fss',
+        ':Telescope lsp_dynamic_workspace_symbols<CR>',
+        desc = 'Telescope find symbols'
+      },
+      {
+        '<leader>fsr',
+        ':Telescope lsp_references<CR>',
+        desc = 'Telescope find all references of current symbol'
+      },
     }
   },
   {
@@ -41,19 +62,29 @@ return {
     keys = {
       {
         '<leader>ttf',
-        ':NvimTreeToggle<CR>',
-        desc = 'Toggle files tree'
-      }
+        function()
+          local api = require('nvim-tree.api')
+          local crtBuf = vim.api.nvim_get_current_buf()
+          local crtBufFt = vim.api.nvim_get_option_value("filetype", { buf = crtBuf })
+          if crtBufFt == "NvimTree" then
+            api.tree.close()
+          else
+            api.tree.find_file({ open = true })
+          end
+        end,
+        desc = 'Toggle files tree smartly'
+      },
     },
     opts = {
       filters = {
-        dotfiles = true,
+        custom = { "^.git$" },
       },
       disable_netrw = true,
       modified = {
         enable = true,
       },
       renderer = {
+        hidden_display = "all",
         highlight_opened_files = "icon",
         highlight_modified = "name",
       },
@@ -70,7 +101,18 @@ return {
   {
     'stevearc/aerial.nvim',
     lazy = true,
-    opts = {},
+    opts = {
+      backends = {
+        c = {"lsp", "treesitter"},
+        cpp = {"lsp", "treesitter"},
+      },
+      filter_kind = {
+        c = false,
+        cpp = false,
+      },
+      attach_mode = "global",
+      close_automatic_events = { "unsupported" },
+    },
     -- Optional dependencies
     dependencies = {
      "nvim-treesitter/nvim-treesitter",
@@ -81,6 +123,11 @@ return {
         '<leader>tts',
         ':AerialToggle<CR>',
         desc = 'Toggle symbols tree'
+      },
+      {
+        '<leader>tns',
+        ':AerialNavToggle<CR>',
+        desc = 'Toggle symbol navigator'
       },
     },
   }
