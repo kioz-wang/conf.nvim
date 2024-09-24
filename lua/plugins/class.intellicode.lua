@@ -24,8 +24,26 @@ return {
     lazy = true,
   },
   {
-    "mhartington/formatter.nvim",
+    "DNLHC/glance.nvim",
     lazy = true,
-  }
+    keys = {
+      {
+        '<leader>gD', '<CMD>Glance definitions<CR>',
+        desc = 'Show definitions of the current symbol'
+      },
+      {
+        '<leader>gR', '<CMD>Glance references<CR>',
+        desc = 'Show references of the current symbol'
+      },
+      {
+        '<leader>gY', '<CMD>Glance type_definitions<CR>',
+        desc = 'Show type definitions of the current symbol'
+      },
+      {
+        '<leader>gM', '<CMD>Glance implementations<CR>',
+        desc = 'Show implementations of the current symbol'
+      },
+    },
+  },
 }
 

@@ -5,6 +5,7 @@ return {
     opts = {
       numhl = true,
       linehl = true,
+      -- issue: line blame will be synchronized on all unfocused buffers.
       -- current_line_blame = true,
     },
     keys = {
@@ -44,5 +45,9 @@ return {
         desc = 'Toggle git show the old version of hunks inline in the buffer'
       },
    }
-  }
+  },
+  {
+    "mhartington/formatter.nvim",
+    lazy = true,
+  },
 }
