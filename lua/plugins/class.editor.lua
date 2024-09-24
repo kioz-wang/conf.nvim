@@ -5,7 +5,7 @@ return {
     opts = {
       numhl = true,
       linehl = true,
-      current_line_blame = true,
+      -- current_line_blame = true,
     },
     keys = {
       {
@@ -34,12 +34,12 @@ return {
         desc = 'Git reset the lines of all hunks in the buffer'
       },
       {
-        '<leader>gtb',
+        '<leader>tgb',
         ':Gitsigns blame_line<CR>',
         desc = 'Show git blame on the current line in a floating window'
       },
       {
-        '<leader>gtd',
+        '<leader>tgd',
         ':Gitsigns toggle_deleted<CR>',
         desc = 'Toggle git show the old version of hunks inline in the buffer'
       },

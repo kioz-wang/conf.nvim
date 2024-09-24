@@ -2,7 +2,12 @@
 return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+      -- Optional dependencies
+      -- 'fd', 'ripgrep'
+      -- "nvim-treesitter/nvim-treesitter"
+    },
     lazy = true,
     keys = {
       {
@@ -35,9 +40,9 @@ return {
     },
     keys = {
       {
-        '<leader>ft',
+        '<leader>ttf',
         ':NvimTreeToggle<CR>',
-        desc = 'Toggle NvimTree'
+        desc = 'Toggle files tree'
       }
     },
     opts = {
@@ -61,6 +66,23 @@ return {
         enable = true,
       },
     }
+  },
+  {
+    'stevearc/aerial.nvim',
+    lazy = true,
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+     "nvim-treesitter/nvim-treesitter",
+     "nvim-tree/nvim-web-devicons"
+    },
+    keys = {
+      {
+        '<leader>tts',
+        ':AerialToggle<CR>',
+        desc = 'Toggle symbols tree'
+      },
+    },
   }
 }
 
