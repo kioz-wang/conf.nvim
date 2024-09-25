@@ -17,9 +17,9 @@ return {
         desc = 'Telescope find files'
       },
       {
-        '<leader>fg',
-        ':Telescope live_grep<CR>',
-        desc = 'Telescope live grep'
+        '<leader>ffr',
+        function() require('telescope.builtin').oldfiles({ only_cwd = true }) end,
+        desc = 'Telescope find recent files'
       },
       {
         '<leader>fb',
@@ -27,9 +27,9 @@ return {
         desc = 'Telescope buffers'
       },
       {
-        '<leader>fh',
-        function() require('telescope.builtin').help_tags() end,
-        desc = 'Telescope help tags'
+        '<leader>fg',
+        ':Telescope live_grep<CR>',
+        desc = 'Telescope live grep'
       },
       {
         '<leader>fG',
@@ -37,17 +37,22 @@ return {
         desc = 'Telescope fuzzy in current buffer'
       },
       {
-        '<leader>fsS',
+        '<leader>fh',
+        function() require('telescope.builtin').help_tags() end,
+        desc = 'Telescope help tags'
+      },
+      {
+        '<leader>sfS',
         ':Telescope lsp_document_symbols<CR>',
         desc = 'Telescope find symbols in current buffer'
       },
       {
-        '<leader>fss',
+        '<leader>sfs',
         ':Telescope lsp_dynamic_workspace_symbols<CR>',
         desc = 'Telescope find symbols'
       },
       {
-        '<leader>fsr',
+        '<leader>sfr',
         ':Telescope lsp_references<CR>',
         desc = 'Telescope find all references of current symbol'
       },
