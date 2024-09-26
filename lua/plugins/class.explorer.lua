@@ -74,7 +74,9 @@ return {
           if crtBufFt == "NvimTree" then
             api.tree.close()
           else
-            api.tree.find_file({ open = true })
+            api.tree.focus()
+            -- the same as `update_focused_file.enable = true`
+            -- api.tree.find_file({ open = true })
           end
         end,
         desc = 'Toggle files tree smartly'
@@ -100,6 +102,15 @@ return {
       },
       diagnostics = {
         enable = true,
+      },
+      update_focused_file = {
+        enable = true,
+      },
+      tab = {
+        sync = {
+          open = true,
+          close = true,
+        }
       },
     }
   },

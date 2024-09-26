@@ -60,6 +60,9 @@ require("formatter").setup({
     lua = {
       require("formatter.filetypes.lua").stylua,
     },
+    ["*"] = {
+      require("formatter.defaults").prettier,
+    },
   },
 })
 
@@ -83,14 +86,14 @@ require("lspconfig").lua_ls.setup({
       -- Make the server aware of Neovim runtime files
       workspace = {
         checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          -- Depending on the usage, you might want to add additional paths here.
-          -- "${3rd}/luv/library"
-          -- "${3rd}/busted/library",
-        },
+        -- library = {
+        --   vim.env.VIMRUNTIME,
+        -- Depending on the usage, you might want to add additional paths here.
+        -- "${3rd}/luv/library"
+        -- "${3rd}/busted/library",
+        -- },
         -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        -- library = vim.api.nvim_get_runtime_file("", true)
+        library = vim.api.nvim_get_runtime_file("", true),
       },
     })
   end,
@@ -102,8 +105,13 @@ require("lspconfig").lua_ls.setup({
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local buf = args.buf
-    vim.api.nvim_buf_set_keymap(buf, "n", "<leader>F", "<CMD>lua vim.lsp.buf.format()<CR>",
-      { desc = "Format the buffer by LSP" })
+    vim.api.nvim_buf_set_keymap(
+      buf,
+      "n",
+      "<leader>F",
+      "<CMD>lua vim.lsp.buf.format()<CR><CMD>w<CR>",
+      { desc = "Format the buffer by LSP" }
+    )
   end,
 })
 
@@ -125,6 +133,7 @@ cmp.setup({
   formatting = {
     format = lspkind.cmp_format(),
   },
+  mapping = cmp.mapping.preset.insert(),
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
