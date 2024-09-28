@@ -12,8 +12,6 @@ opt.wrap = false
 
 opt.cursorline = true
 
-opt.mouse = "a"
-
 opt.clipboard = "unnamedplus"
 
 opt.ignorecase = true
@@ -22,30 +20,7 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 
-vim.g.mapleader = " "
-
-local map = vim.keymap.set
-
-map("n", "<A-z>", function()
-  vim.o.wrap = not vim.o.wrap
-end, { desc = "Toggle wrap" })
-
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
-
-map("n", "j", [[v:count ? 'j' : 'gj']], { expr = true })
-map("n", "k", [[v:count ? 'k' : 'gk']], { expr = true })
-
-map("n", "<leader>wh", "<C-w>h", { desc = "Focus the left window" })
-map("n", "<leader>wj", "<C-w>j", { desc = "Focus the below window" })
-map("n", "<leader>wk", "<C-w>k", { desc = "Focus the above window" })
-map("n", "<leader>wl", "<C-w>l", { desc = "Focus the right window" })
-map("n", "<leader>wq", "<C-w>q", { desc = "Quit the window" })
-
-map("n", "<leader>ws", "<C-w>s", { desc = "Split the window" })
-map("n", "<leader>wv", "<C-w>v", { desc = "Split vertically the window" })
-
-map("n", "<leader>nh", ":nohl<CR>")
+require("config.keymaps")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -53,7 +28,7 @@ vim.g.loaded_netrwPlugin = 1
 require("config.lazy")
 
 -- vim.cmd[[colorscheme tokyonight]]
-vim.cmd([[colorscheme nord]])
+vim.cmd([[colorscheme tokyonight-storm]])
 
 require("formatter").setup({
   filetype = {
@@ -63,6 +38,22 @@ require("formatter").setup({
     ["*"] = {
       require("formatter.defaults").prettier,
     },
+  },
+})
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = {},
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {},
+  modules = {
+  },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  incremental_selection = {
+    enable = true,
   },
 })
 

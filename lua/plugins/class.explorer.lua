@@ -66,7 +66,7 @@ return {
     },
     keys = {
       {
-        '<leader>ttf',
+        '<leader>e',
         function()
           local api = require('nvim-tree.api')
           local crtBuf = vim.api.nvim_get_current_buf()
@@ -79,7 +79,7 @@ return {
             -- api.tree.find_file({ open = true })
           end
         end,
-        desc = 'Toggle files tree smartly'
+        desc = 'Toggle file explorer smartly'
       },
     },
     opts = {

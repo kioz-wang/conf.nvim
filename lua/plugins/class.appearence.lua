@@ -2,7 +2,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    -- lazy = true,
   },
   {
     "tanvirtin/monokai.nvim",
