@@ -15,13 +15,14 @@ map("n", "k", [[v:count ? 'k' : 'gk']], { expr = true })
 
 -- Lines Movement
 
+-- Note: there are some diffrences between `:` and `<CMD>`, be careful.
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines
-map("n", "<A-j>", "<CMD>m .+1<CR>==", { desc = "Move line / block down" })
-map("n", "<A-k>", "<CMD>m .-2<CR>==", { desc = "Move line / block up" })
-map("i", "<A-j>", "<Esc><CMD>m .+1<CR>==gi", { desc = "Move line / block down" })
-map("i", "<A-k>", "<Esc><CMD>m .-2<CR>==gi", { desc = "Move line / block up" })
-map("v", "<A-j>", "<CMD>m '>+1<CR>gv=gv", { desc = "Move line / block down" })
-map("v", "<A-k>", "<CMD>m '<-2<CR>gv=gv", { desc = "Move line / block up" })
+map("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line / block down" })
+map("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line / block up" })
+map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line / block down" })
+map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line / block up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line / block down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line / block up" })
 
 map("v", "<", "<gv", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
