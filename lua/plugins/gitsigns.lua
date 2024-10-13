@@ -4,7 +4,7 @@ return {
     event = 'VeryLazy',
     opts = {
       numhl = true,
-      linehl = true,
+      -- linehl = true,
       -- issue: line blame will be synchronized on all unfocused buffers.
       -- current_line_blame = true,
     },
