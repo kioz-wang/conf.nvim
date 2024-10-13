@@ -1,8 +1,7 @@
-
 return {
   {
     "folke/tokyonight.nvim",
-    -- lazy = true,
+    lazy = true,
   },
   {
     "tanvirtin/monokai.nvim",
@@ -10,12 +9,11 @@ return {
   },
   {
     "shaunsingh/nord.nvim",
-    lazy = false,
+    lazy = true,
   },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {}
-  }
+    "catppuccin/nvim",
+    name = "catppuccin",
+    -- lazy = true,
+  },
 }
-

@@ -35,41 +35,15 @@ return {
         desc = 'Git reset the lines of all hunks in the buffer'
       },
       {
-        '<leader>tgb',
+        '<leader>gtb',
         ':Gitsigns blame_line<CR>',
         desc = 'Show git blame on the current line in a floating window'
       },
       {
-        '<leader>tgd',
+        '<leader>gtd',
         ':Gitsigns toggle_deleted<CR>',
         desc = 'Toggle git show the old version of hunks inline in the buffer'
       },
     }
-  },
-  {
-    "mhartington/formatter.nvim",
-    lazy = true,
-    keys = {
-      {
-        '<leader>F',
-        '<CMD>FormatWrite<CR>',
-        desc = 'Format the buffer'
-      },
-    },
-  },
-  {
-    "smoka7/hop.nvim",
-    lazy = true,
-    opts = {},
-    keys = {
-      {
-        -- use "cl" to delete characters and start insert instead.
-        "s", "<CMD>HopChar2<CR>", desc = "Cursor move by HopChar2"
-      },
-      {
-        -- use "cc" to delete lines and start insert instead.
-        "S", "<CMD>HopWord<CR>", desc = "Cursor move by HopWord"
-      },
-    },
   },
 }

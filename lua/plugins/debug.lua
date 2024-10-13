@@ -22,5 +22,13 @@ return {
         dapui.close()
       end
     end,
-  }
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- https://stackoverflow.com/questions/45907039/vim-mapping-ctrl-or-c-to-c-ww
+      open_mapping = "<A-t>",
+    },
+  },
 }

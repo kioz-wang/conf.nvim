@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.timeoutlen = 500
+
 local map = vim.keymap.set
 
 -- Line Display
@@ -35,24 +37,24 @@ map("i", "<A-Down>",  "<C-\\><C-N><C-w>j", { desc = "Focus window down" })
 map("i", "<A-Up>",    "<C-\\><C-N><C-w>k", { desc = "Focus window up" })
 map("i", "<A-Right>", "<C-\\><C-N><C-w>l", { desc = "Focus window right" })
 
-map("n", "<C-h>", "<C-w>h", { desc = "Focus window left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Focus window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "Focus window up" })
-map("n", "<C-l>", "<C-w>l", { desc = "Focus window right" })
+map({ "n", "v" }, "<C-h>", "<C-w>h", { desc = "Focus window left" })
+map({ "n", "v" }, "<C-j>", "<C-w>j", { desc = "Focus window down" })
+map({ "n", "v" }, "<C-k>", "<C-w>k", { desc = "Focus window up" })
+map({ "n", "v" }, "<C-l>", "<C-w>l", { desc = "Focus window right" })
 
 -- Window Resize (Look from left-top window)
 
-map("n", "<C-Left>",  "<CMD>vertical resize -2<CR>", { desc = "Decrease window width" })
-map("n", "<C-Down>",  "<CMD>resize +2<CR>", { desc = "Increase window height" })
-map("n", "<C-Up>",    "<CMD>resize -2<CR>", { desc = "Decrease window height" })
-map("n", "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Increase window width" })
+map({ "n", "v" }, "<C-Left>",  "<CMD>vertical resize -2<CR>", { desc = "Decrease window width" })
+map({ "n", "v" }, "<C-Down>",  "<CMD>resize +2<CR>", { desc = "Increase window height" })
+map({ "n", "v" }, "<C-Up>",    "<CMD>resize -2<CR>", { desc = "Decrease window height" })
+map({ "n", "v" }, "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Misc
 
 map("n", "<leader>wq", "<C-w>q", { desc = "Quit the window" })
 
 map("n", "<leader>ws", "<C-w>s", { desc = "Split the window" })
-map("n", "<leader>wv", "<C-w>v", { desc = "Split vertically the window" })
+map("n", "<leader>wv", "<C-w>v", { desc = "Split the window vertically" })
 
 map("n", "<leader>nh", ":nohl<CR>")
 
