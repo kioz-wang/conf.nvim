@@ -22,8 +22,22 @@ return {
     keys = {
       {
         '<leader>ts',
-        ':AerialToggle<CR>',
-        desc = 'Toggle symbols tree'
+        -- ':AerialToggle<CR>',
+        function()
+          local api = require('aerial')
+          local crtBuf = vim.api.nvim_get_current_buf()
+          local crtBufFt = vim.api.nvim_get_option_value("filetype", { buf = crtBuf })
+          if crtBufFt == "aerial" then
+            api.close()
+          else
+            if api.is_open() then
+              api.focus()
+            else
+              api.open({ focus = true })
+            end
+          end
+        end,
+        desc = 'Toggle symbols tree smartly'
       },
       {
         '<leader>tsn',
