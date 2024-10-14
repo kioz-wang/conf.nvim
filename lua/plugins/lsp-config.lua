@@ -10,7 +10,7 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "hls",
+        -- "hls",
       },
     },
     dependencies = {

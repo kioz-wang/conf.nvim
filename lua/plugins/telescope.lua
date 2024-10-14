@@ -42,17 +42,17 @@ return {
         desc = 'Telescope help tags'
       },
       {
-        '<leader>sfS',
+        '<leader>fsS',
         ':Telescope lsp_document_symbols<CR>',
         desc = 'Telescope find symbols in current buffer'
       },
       {
-        '<leader>sfs',
+        '<leader>fss',
         ':Telescope lsp_dynamic_workspace_symbols<CR>',
         desc = 'Telescope find symbols'
       },
       {
-        '<leader>sfr',
+        '<leader>fsr',
         ':Telescope lsp_references<CR>',
         desc = 'Telescope find all references of current symbol'
       },
