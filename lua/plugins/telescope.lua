@@ -10,6 +10,13 @@ return {
       'nvim-telescope/telescope-symbols.nvim',
     },
     lazy = true,
+    opts = {
+      defaults = {
+        path_display = {
+          "smart"
+        },
+      },
+    },
     keys = {
       {
         '<leader>ff',
