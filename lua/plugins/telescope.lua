@@ -13,32 +13,32 @@ return {
     keys = {
       {
         '<leader>ff',
-        require("telescope.builtin").find_files,
+        ":Telescope find_files<CR>",
         desc = 'Telescope find files'
       },
-      {
-        '<leader>ffr',
-        function() require('telescope.builtin').oldfiles({ only_cwd = true }) end,
-        desc = 'Telescope find recent files'
-      },
+      -- {
+      --   '<leader>ffr',
+      --   function() require('telescope.builtin').oldfiles({ only_cwd = true }) end,
+      --   desc = 'Telescope find recent files'
+      -- },
       {
         '<leader>fb',
-        require('telescope.builtin').buffers,
+        ":Telescope buffers<CR>",
         desc = 'Telescope buffers'
       },
       {
         '<leader>fg',
-        require('telescope.builtin').live_grep,
+        ":Telescope live_grep<CR>",
         desc = 'Telescope live grep'
       },
       {
         '<leader>fG',
-        require('telescope.builtin').current_buffer_fuzzy_find,
+        ":Telescope current_buffer_fuzzy_find<CR>",
         desc = 'Telescope fuzzy in current buffer'
       },
       {
         '<leader>fh',
-        require('telescope.builtin').help_tags,
+        ":Telescope help_tags<CR>",
         desc = 'Telescope help tags'
       },
       {
