@@ -20,19 +20,13 @@ return {
           "L3MON4D3/LuaSnip",
         },
       },
-      {
-        "hrsh7th/cmp-nvim-lsp",
-        dependencies = {
-          "neovim/nvim-lspconfig",
-        },
-      },
+      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "onsails/lspkind-nvim",
     },
     config = function()
-
       local lspkind = require("lspkind")
       local luasnip = require("luasnip")
       local cmp = require("cmp")
@@ -54,9 +48,10 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-          ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
           -- C-b (back) C-f (forward) for snippet placeholder navigation.
           ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -83,7 +78,6 @@ return {
       })
 
       require("luasnip.loaders.from_vscode").lazy_load()
-
     end,
   },
 }

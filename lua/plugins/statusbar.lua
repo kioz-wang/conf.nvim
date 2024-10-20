@@ -15,5 +15,10 @@ return {
         desc = "Breadcurmbs Picker",
       },
     },
-  },
+    opts = {
+      menu = {
+        preview = false,
+      }
+    },
+  }
 }

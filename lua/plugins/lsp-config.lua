@@ -25,10 +25,14 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local lsp_capa = require("cmp_nvim_lsp").default_capabilities()
 
-      lspconfig.clangd.setup({})
+      lspconfig.clangd.setup({
+        capabilities = lsp_capa,
+      })
 
       lspconfig.lua_ls.setup({
+        capabilities = lsp_capa,
         on_init = function(client)
           if client.workspace_folders then
             local path = client.workspace_folders[1].name
@@ -61,23 +65,27 @@ return {
         },
       })
 
-
       vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(args)
-          local buf = args.buf
-          vim.api.nvim_buf_set_keymap(
-            buf,
-            "n",
-            "<leader>F",
-            "<CMD>lua vim.lsp.buf.format()<CR><CMD>w<CR>",
-            { desc = "Format the buffer by LSP" }
+        callback = function()
+          local map = function(mode, lhs, rhs, desc)
+            local opts = { buffer = true, desc = desc }
+            vim.keymap.set(mode, lhs, rhs, opts)
+          end
+
+          map('n', '<leader>F', '<CMD>lua vim.lsp.buf.format()<CR><CMD>w<CR>', 'Format the buffer by LSP')
+          -- use <C-]> instead, and use <C-W_}> to preview
+          -- map('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', 'Jump to the definition')
+          -- map('n', 'go', '<CMD>lua vim.lsp.buf.type_definition()<CR>', 'Jump to the definition of the type symbol')
+          map("n", "<leader>sgD", "<CMD>lua vim.lsp.buf.declaration()<CR>", "Jump to the declaration")
+          -- use telescope instead
+          -- map("n", "gm", "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all the implementations")
+          -- map('n', 'gr', '<CMD>lua vim.lsp.buf.references()<CR>', 'List all the references')
+          map("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename all references to the symbol")
+          map("n", "<F4>", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Select a code action available")
+          map("n", "<leader>D", "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics in a floating window"
           )
         end,
       })
     end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    lazy = true,
-  }
 }
