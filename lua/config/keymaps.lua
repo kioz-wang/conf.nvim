@@ -51,11 +51,12 @@ map({ "n", "v" }, "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Increase
 
 -- Misc
 
-map("n", "<leader>k", "<CMD>bdelete<CR>", { desc = "Close current buffer" })
+map("n", "<leader>kb", "<CMD>bdelete<CR>", { desc = "Close current buffer" })
+map("n", "<leader>kw", "<C-w>q", { desc = "Close the window" })
+map("n", "<leader>kt", "<CMD>tabclose<CR>", { desc = "Close the tab" })
+map("n", "<leader>ka", "<CMD>qa<CR>", { desc = "Quit NeoVim" })
 map("n", "<leader>w", "<CMD>w<CR>", { desc = "Save current buffer" })
 map("n", "<leader>W", "<CMD>wa<CR>", { desc = "Save all buffers" })
-map("n", "<leader>qq", "<C-w>q", { desc = "Quit the window" })
-map("n", "<leader>qQ", "<CMD>qa<CR>", { desc = "Quit all windows" })
 
 map("n", "<leader>ss", "<C-w>s", { desc = "Split the window" })
 map("n", "<leader>sv", "<C-w>v", { desc = "Split the window vertically" })

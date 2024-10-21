@@ -5,7 +5,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = {"nvim-neotest/nvim-nio"},
+    dependencies = { "nvim-neotest/nvim-nio" },
     lazy = true,
     config = function()
       local dap, dapui = require("dap"), require("dapui")
@@ -29,6 +29,12 @@ return {
     opts = {
       -- https://stackoverflow.com/questions/45907039/vim-mapping-ctrl-or-c-to-c-ww
       open_mapping = "<A-t>",
+      float_opts = {
+        border = 'rounded',
+      },
     },
+    keys = {
+      { '<A-T>', "<CMD>ToggleTerm direction=float<CR>", mode = {'i', 'n'}, desc = 'Toggle Term (float)' },
+    }
   },
 }
