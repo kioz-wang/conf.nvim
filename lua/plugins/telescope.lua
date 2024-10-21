@@ -39,14 +39,19 @@ return {
         desc = 'Find Buffers'
       },
       {
-        '<leader>fg',
+        '<leader>fgl',
         ":Telescope live_grep<CR>",
-        desc = 'Live Grep'
+        desc = 'Live Grep (non-Fuzzy)'
+      },
+      {
+        '<leader>fg',
+        ":Telescope grep_string<CR>",
+        desc = 'Grep current string'
       },
       {
         '<leader>fG',
         ":Telescope current_buffer_fuzzy_find<CR>",
-        desc = 'Fuzzy Grep in current buffer'
+        desc = 'Live Grep (local)'
       },
       {
         '<leader>fh',
@@ -55,7 +60,7 @@ return {
       },
       {
         '<leader>fm',
-        ":Telescope man_pages<CR>",
+        ":Telescope man_pages sections=ALL<CR>",
         desc = 'Man Pages'
       },
       {
@@ -71,17 +76,17 @@ return {
       {
         '<leader>sgr',
         ':Telescope lsp_references<CR>',
-        desc = "Cursor word's LSP references"
+        desc = "LSP references"
       },
       {
         '<leader>sgd',
         ':Telescope lsp_definitions<CR>',
-        desc = "Cursor word's LSP definitions"
+        desc = "LSP definitions"
       },
       {
         '<leader>sgm',
         ':Telescope lsp_implementations<CR>',
-        desc = "Cursor word's LSP implementations"
+        desc = "LSP implementations"
       },
       {
         '<leader>d',
@@ -91,7 +96,7 @@ return {
       {
         '<leader>sF',
         ':Telescope lsp_document_symbols<CR>',
-        desc = 'Find Symbols in current buffer'
+        desc = 'Find Symbols (local)'
       },
       {
         '<leader>sf',

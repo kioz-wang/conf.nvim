@@ -53,8 +53,9 @@ map({ "n", "v" }, "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Increase
 
 map("n", "<leader>k", "<CMD>bdelete<CR>", { desc = "Close current buffer" })
 map("n", "<leader>w", "<CMD>w<CR>", { desc = "Save current buffer" })
-map("n", "<leader>wa", "<CMD>wa<CR>", { desc = "Save all buffers" })
+map("n", "<leader>W", "<CMD>wa<CR>", { desc = "Save all buffers" })
 map("n", "<leader>qq", "<C-w>q", { desc = "Quit the window" })
+map("n", "<leader>qQ", "<CMD>qa<CR>", { desc = "Quit all windows" })
 
 map("n", "<leader>ss", "<C-w>s", { desc = "Split the window" })
 map("n", "<leader>sv", "<C-w>v", { desc = "Split the window vertically" })

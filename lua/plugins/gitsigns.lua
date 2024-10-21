@@ -12,37 +12,37 @@ return {
       {
         '<leader>gS',
         ':Gitsigns stage_hunk<CR>',
-        desc = 'Git stage the hunk at the cursor position'
+        desc = 'Git stage (hunk)'
       },
       {
         '<leader>gU',
         ':Gitsigns undo_stage_hunk<CR>',
-        desc = 'Undo the last Git stage_hunk'
+        desc = 'Undo the last stage (hunk)'
       },
       {
         '<leader>gR',
         ':Gitsigns reset_hunk<CR>',
-        desc = 'Git reset the lines of the hunk at the cursor position'
+        desc = 'Git reset (hunk)'
       },
       {
         '<leader>gs',
         ':Gitsigns stage_buffer<CR>',
-        desc = 'Git stage all hunks in current buffer'
+        desc = 'Git stage (local)'
       },
       {
         '<leader>gr',
         ':Gitsigns reset_buffer<CR>',
-        desc = 'Git reset the lines of all hunks in the buffer'
+        desc = 'Git reset (local)'
       },
       {
         '<leader>gtb',
         ':Gitsigns blame_line<CR>',
-        desc = 'Show git blame on the current line in a floating window'
+        desc = 'Git blame floating (line)'
       },
       {
         '<leader>gtd',
         ':Gitsigns toggle_deleted<CR>',
-        desc = 'Toggle git show the old version of hunks inline in the buffer'
+        desc = 'Toggle git show the old version of hunks inline (local)'
       },
     }
   },
