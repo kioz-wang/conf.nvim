@@ -56,7 +56,7 @@ map("n", "<leader>w", "<CMD>w<CR>", { desc = "Save current buffer" })
 map("n", "<leader>wa", "<CMD>wa<CR>", { desc = "Save all buffers" })
 map("n", "<leader>qq", "<C-w>q", { desc = "Quit the window" })
 
-map("n", "<leader>s", "<C-w>s", { desc = "Split the window" })
+map("n", "<leader>ss", "<C-w>s", { desc = "Split the window" })
 map("n", "<leader>sv", "<C-w>v", { desc = "Split the window vertically" })
 
 map("n", "<leader>nh", ":nohl<CR>")
