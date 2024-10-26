@@ -31,6 +31,11 @@ return {
         capabilities = lsp_capa,
       })
 
+      vim.filetype.add({
+        pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+      })
+      lspconfig.hyprls.setup({})
+
       lspconfig.lua_ls.setup({
         capabilities = lsp_capa,
         on_init = function(client)
@@ -72,7 +77,7 @@ return {
             vim.keymap.set(mode, lhs, rhs, opts)
           end
 
-          map('n', '<leader>F', '<CMD>lua vim.lsp.buf.format()<CR><CMD>w<CR>', 'Format the buffer by LSP')
+          map("n", "<leader>F", "<CMD>lua vim.lsp.buf.format()<CR><CMD>w<CR>", "Format the buffer by LSP")
           -- use <C-]> instead, and use <C-W_}> to preview
           -- map('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', 'Jump to the definition')
           -- map('n', 'go', '<CMD>lua vim.lsp.buf.type_definition()<CR>', 'Jump to the definition of the type symbol')
@@ -82,10 +87,25 @@ return {
           -- map('n', 'gr', '<CMD>lua vim.lsp.buf.references()<CR>', 'List all the references')
           map("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename all references to the symbol")
           map("n", "<F4>", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Select a code action available")
-          map("n", "<leader>D", "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics in a floating window"
+          map(
+            "n",
+            "<leader>D",
+            "<CMD>lua vim.diagnostic.open_float()<CR>",
+            "Show diagnostics in a floating window"
           )
         end,
       })
     end,
+  },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
   },
 }

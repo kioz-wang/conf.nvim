@@ -46,6 +46,9 @@ return {
         formatting = {
           format = lspkind.cmp_format(),
         },
+        complete = {
+          keyword_length = 3,
+        },
         mapping = cmp.mapping.preset.insert({
           ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
           ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down

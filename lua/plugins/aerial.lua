@@ -1,6 +1,7 @@
 return {
   {
     'stevearc/aerial.nvim',
+    enabled = false,
     lazy = true,
     opts = {
       backends = {
