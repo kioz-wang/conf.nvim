@@ -46,7 +46,7 @@ return {
         formatting = {
           format = lspkind.cmp_format(),
         },
-        complete = {
+        completion = {
           keyword_length = 3,
         },
         mapping = cmp.mapping.preset.insert({
